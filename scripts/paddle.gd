@@ -10,6 +10,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	var viewport: Rect2 = get_viewport().get_visible_rect()
 	var movement = Vector2.ZERO
 	
 	# Set movement direction based on input
@@ -19,3 +20,4 @@ func _process(delta: float) -> void:
 		movement.y = -1
 		
 	position += movement * speed * delta
+	position.y = clamp(position.y, 0, viewport.size.y)
