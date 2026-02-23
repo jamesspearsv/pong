@@ -20,4 +20,6 @@ func _process(delta: float) -> void:
 		movement.y = -1
 		
 	position += movement * speed * delta
+	
+	# Clamp paddle position to viewport height bounds
 	position.y = clamp(position.y, 0, viewport.size.y)
